@@ -1,13 +1,13 @@
 {
   "name": "switchstream",
-  "version": "0.0.0",
-  "description": "",
+  "version": "0.0.1",
+  "description": "Dynamically update a stream's output destination.",
   "main": "index.js",
   "scripts": {
     "test": "node test/index.js"
   },
-  "author": "",
-  "license": "BSD",
+  "author": "Tim Oxley",
+  "license": "MIT",
   "dependencies": {
     "through": "~2.3.4"
   },
@@ -16,5 +16,22 @@
     "through": "~2.3.4",
     "tape": "~1.1.0",
     "split": "~0.2.10"
+  },
+  "directories": {
+    "example": "examples",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/timoxley/switchstream.git"
+  },
+  "keywords": [
+    "switch",
+    "stream",
+    "toggle",
+    "select"
+  ],
+  "bugs": {
+    "url": "https://github.com/timoxley/switchstream/issues"
   }
 }
