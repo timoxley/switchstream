@@ -6,17 +6,17 @@ Change where data flows as it passes through the switchstream.
 var Switchstream = require('switchstream')
 
 var switchstream = Switchstream(function(data) {
-  // return the index of the stream you want to
+  // return the key of the stream you want to
   // pipe this data to
-  if (data === 'a') return 0
-  if (data === 'b') return 1
+  if (data === 'a') return 'stream a'
+  if (data === 'b') return 'stream b'
 })
 
-var a = fs.createWriteStream('a.txt')
-var b = fs.createWriteStream('b.txt')
-
 from(['a', 'b',  'a', 'a', 'b']) // example data
-.pipe(switchstream(a, b)) // a is index 0, b is index 1
+.pipe(switchstream.between({
+  'stream-a': fs.createWriteStream('a.txt'),
+  'stream-b': fs.createWriteStream('b.txt')
+}))
 
 // result will be a.txt with the three a's and b.txt with the two b's
 ```
